@@ -25,7 +25,9 @@
     "webpack-dev-server": "^2.11.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --env development",
+    "build": "webpack --env production"
   },
   "repository": {
     "type": "git",
