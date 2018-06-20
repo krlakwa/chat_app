@@ -2,11 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 
-const plugins = [new HtmlWebpackPlugin({
+/*const plugins = [new HtmlWebpackPlugin({
     template: 'src/index.html',
     filename: 'index.html',
     inject: 'body'
-})]
+})]*/
 
 module.exports = (env) => {
     if (env === 'production') {
@@ -22,7 +22,7 @@ module.exports = (env) => {
         mode: environment,
         entry: (env !== 'production' ? [
             'react-hot-loader/patch',
-            'webpack-dec-server/client?http://localhost:8080',
+            'webpack-dev-server/client?http://localhost:8080',
             'webpack/hot/only-dev-server',
         ] : []).concat(['./client/index.js']),
         output: {
@@ -54,8 +54,8 @@ module.exports = (env) => {
                     ]
                 }
             ]
-        },
-        plugins
+        }
+        //plugins
     }
     
 }
