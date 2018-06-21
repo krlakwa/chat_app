@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import io from 'socket.io-client';
 
 import styles from './App.css';
@@ -26,8 +26,15 @@ class App extends Component {
         socket.on('update', ({users}) => this.chatUpdate(users));
     }
 
+    componentWillUnmount() {
+        socket.off('message');
+        socket.off('update');
+        //socket.removeAllListeners();
+    }
+
     messageReceive(message) {
         const messages = [message, ...this.state.messages];
+        console.log(this.state.messages)
         this.setState({messages});
     }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import styles from './MessageForm.css';
 
@@ -15,7 +15,7 @@ class MessageForm extends Component {
             text: this.state.text
         };
         this.props.onMessageSubmit(message);
-        this.state({ text: ''})
+        this.setState({ text: ''})
     }
 
     changeHandler(e) {
