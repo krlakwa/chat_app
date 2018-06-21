@@ -16,7 +16,6 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    //listening for connection of new user
     socket.on('join', function(name){
         userService.addUser({
             id: socket.id,
@@ -39,7 +38,7 @@ io.on('connection', function(socket){
 
 io.on('connection', function(socket){
     socket.on('message', function(message){
-        const {name} = userService.getUserByID(socket.id);
+        const {name} = userService.getUserById(socket.id);
         socket.broadcast.emit('message', {
             text: message.text,
             from: name
